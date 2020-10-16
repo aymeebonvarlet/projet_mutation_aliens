@@ -1,5 +1,6 @@
 #include "mainwindow.h"
-
+#include "../../shared/qstd.h"
+using namespace qstd;
 #include <QApplication>
 
 int main(int argc, char *argv[])

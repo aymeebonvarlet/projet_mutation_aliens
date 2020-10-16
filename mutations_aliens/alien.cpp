@@ -1,6 +1,6 @@
 #include "alien.h"
 
-Alien::Alien()
+Alien::Alien(Schtroumpf_gene c, tentaclessize_gene t): color(c), tentaclessize(t)
 {
 
 }

@@ -24,3 +24,4 @@ gène 3 : allèle strabisme récessif (-) (être trop différent c'est chiant)
 étape 4 :  incorporer les autres gènes au projet Qt
 étape 5 : graphique si temps
 
+![Screenshot](colors_pourcents.jpg) 

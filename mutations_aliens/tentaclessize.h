@@ -1,11 +1,16 @@
-#ifndef TENTACLESSIZE_GENE_H
-#define TENTACLESSIZE_GENE_H
+#ifndef TENTACLESSIZE_H
+#define TENTACLESSIZE_H
 
 
-class tentaclessize_gene
+class tentaclessize
 {
+private:
+    int taille;
 public:
-    tentaclessize_gene();
+    tentaclessize(int t);
+    void mutate();
+    int getTaille() const;
+    void setTaille(int value);
 };
 
-#endif // TENTACLESSIZE_GENE_H
+#endif // TENTACLESSIZE_H
