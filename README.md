@@ -27,21 +27,30 @@ gène 3 : allèle strabisme récessif (-) (être trop différent c'est chiant)
 ![Screenshot](colors_pourcents.jpg) 
 
 ![Screenshot](echequier_punett.png) 
-
-
-
 -> échéquier de punnett
+
+
+
+Pour définir l'importance de chacun des fitness des gênes lors du calcul du fitness général de l'alien, on définira des paramètre de manère arbitraire et on établira une note globale
 
 pour le gène Schtroupf :
 
 on part sur 3 couleurs :
 
-rouge dominant
+rouge dominant (60%)
+vert récessif (35%)
+bleu récessif (5%)
 
-vert récessif
-
-bleu récessif 
-
-vb donne jaune
-
+vb donne jaune (Cette modification apparaitra seulement sur le graphique, les gênes resteront "vb"(pour vert et bleu) et ne deviendrons pas "jj")
 donc on aura au total 4 couleurs possibles pour notre alien : Rouge, vert, bleu et jaune. Mais l'alien bleu aura le meilleur fitness et le rouge le moins bon.
+
+Pour le grêne tentaclessize :
+
+On part pour l'instant sur 3 tailles de tentacle : 
+
+Grande tentacules 
+Moyennes tentacules
+Petites tentacules
+
+On donc 3 tailles de tentacules pour notre alien, sachant que celui avec les plus grandes tentacules aura un meilleure fitness que celui avec les petites
+
