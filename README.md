@@ -25,3 +25,23 @@ gène 3 : allèle strabisme récessif (-) (être trop différent c'est chiant)
 étape 5 : graphique si temps
 
 ![Screenshot](colors_pourcents.jpg) 
+
+![Screenshot](echequier_punett.png) 
+
+
+
+-> échéquier de punnett
+
+pour le gène Schtroupf :
+
+on part sur 3 couleurs :
+
+rouge dominant
+
+vert récessif
+
+bleu récessif 
+
+vb donne jaune
+
+donc on aura au total 4 couleurs possibles pour notre alien : Rouge, vert, bleu et jaune. Mais l'alien bleu aura le meilleur fitness et le rouge le moins bon.

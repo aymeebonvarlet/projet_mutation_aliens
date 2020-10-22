@@ -12,8 +12,11 @@ public:
     Alien();
     Alien(Alien *parent);
     double getfitness() const;
+    void mutate();
     double evaluate();
     QString toString();
+    QList<alien_gene *> getGenome() const;
+    static bool lessFitnessThan(Alien *a1, Alien *a2);
 };
 
 #endif // ALIEN_H
