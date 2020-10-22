@@ -1,4 +1,5 @@
 #include "schtroumpf.h"
+#include "random.h"
 
 void Schtroumpf::setChrom1(const QString &value)
 {
@@ -28,5 +29,5 @@ bool Schtroumpf::schtroumf(Schtroumpf g)
 
 void Schtroumpf::mutate()
 {
-    
+    if
 }

@@ -10,9 +10,8 @@ private:
     QList<alien_gene *> genome;
 public:
     Alien();
-    Alien(Alien *parent);
+    Alien(Alien *parent1, Alien *parent2);
     double getfitness() const;
-    void mutate();
     double evaluate();
     QString toString();
     QList<alien_gene *> getGenome() const;
