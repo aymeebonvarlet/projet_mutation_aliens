@@ -21,7 +21,9 @@ Tentaclessize::Tentaclessize(int t, double f) : taille(t) , fitness(f)
 
 double Tentaclessize::def_fitness_tentacle(int taille)
 {
-    return taille;
+    double FitnessTentSize = taille / 5;
+
+    return FitnessTentSize ;
 
 }
 
