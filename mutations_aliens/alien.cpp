@@ -13,12 +13,29 @@ Alien::Alien(double f, Schtroumpf *st, Tentaclessize t) : fitness(f), s(st), ts(
 Tentaclessize Alien::t(Alien *parent1, Alien *parent2)
 {
     srand(time(NULL));
-    //on récupère le génome des parents ainsi que la taille des tentacules
-    Tentaclessize gene_p1 = parent1->getTs();
-    Tentaclessize gene_p2 = parent2->getTs();
+    //on récupère la valeur de la taille des tentacules des parents
+    int taille_p1 = parent1->getTs().getTaille();
+    int taille_p2 = parent2->getTs().getTaille();
+    //on fait la variable random (On peut la représenter par l'environement du nouvel individu)
     int min_borne = 0;
-    int max_borne = 15;
+    int max_borne = 12;
     int x = rand()%(max_borne-min_borne+1)+1;
+    //on fait la variable random pour savoir quel impact l'environement aura
+    int max_borne2 = 2;
+    double y = (double) rand()/max_borne2;
+    //On fait le calcul de la nouvelles taille des tentacules de notre nouvel individu
+    double taille_pNew;
+    if(y < 0.95){
+        taille_pNew = (taille_p1+taille_p2)/2 - x;
+    }
+    else if (y > 1.05) {
+        taille_pNew = (taille_p1+taille_p2)/2 + x;
+    }
+    else {
+        taille_pNew = (taille_p1+taille_p2)/2;
+    }
+    return taille_pNew;
+
 
 }
 
