@@ -1,6 +1,24 @@
-#include "tentaclessize_gene.h"
+#include "tentaclessize.h"
+#include <QTextStream>
+double tentaclessize::getFitness() const
+{
+    return fitness;
+}
 
-tentaclessize_gene::tentaclessize_gene()
+double tentaclessize::def_fitness(int taille)
+{
+    return taille;
+}
+
+QString tentaclessize::toString()
+{
+    QString res;
+    QTextStream buf(&res);
+    buf<<"taille:" <<taille<<" -> fitness = "<<fitness<<endl;
+    return res;
+}
+
+tentaclessize::tentaclessize(int t, double f) : taille(t) , fitness(f)
 {
 
 }
@@ -14,3 +32,5 @@ void tentaclessize::setTaille(int value)
 {
     taille = value;
 }
+
+

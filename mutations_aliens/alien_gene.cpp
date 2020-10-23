@@ -1,16 +1,18 @@
 #include "alien_gene.h"
+#include <QTextStream>
+
 
 Schtroumpf *alien_gene::getS() const
 {
     return s;
 }
 
-tentaclessize *alien_gene::getTs() const
+alien_gene::alien_gene(Schtroumpf *schtroumph, tentaclessize tents) : s(schtroumph) , ts(tents)
 {
-    return ts;
+
 }
 
-alien_gene::alien_gene(Schtroumpf *schtroumph, tentaclessize tents)
+QString alien_gene::toString()
 {
 
 }

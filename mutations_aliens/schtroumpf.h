@@ -2,20 +2,27 @@
 #define SCHTROUMPF_H
 #include <QString>
 
+enum gene_couleur {R, v ,b };
+enum couleur_ind{Rouge, Jaune, Bleu, Vert};
 class Schtroumpf
 {
 private:
-    QString chrom1;
-    QString chrom2;
+    gene_couleur chrom1;
+    gene_couleur chrom2;
     double fitness;
+    couleur_ind couleur;
 public:
-    Schtroumpf(QString c1, QString c2, double f);
-    bool schtroumf(Schtroumpf g);
+    Schtroumpf(gene_couleur c1, gene_couleur c2, double f, couleur_ind c);
     void mutate();
-    QString getChrom1() const;
-    QString getChrom2() const;
-    void setChrom1(const QString &value);
-    void setChrom2(const QString &value);
+    couleur_ind couleur_individual(gene_couleur c1, gene_couleur c2);
+    //getter et setter
+    gene_couleur getChrom1() const;
+    void setChrom1(const gene_couleur &value);
+    gene_couleur getChrom2() const;
+    void setChrom2(const gene_couleur &value);
+    double getFitness() const;
+    double definition_fitness(couleur_ind c);
+    QString toString();
 };
 
 #endif // SCHTROUMPF_H

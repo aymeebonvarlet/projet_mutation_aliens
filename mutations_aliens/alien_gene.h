@@ -8,12 +8,13 @@ class alien_gene
 {
 private: 
     Schtroumpf *s;
-    tentaclessize *ts;
+    tentaclessize ts;
 public:
     alien_gene(Schtroumpf *schtroumph, tentaclessize tents);
     alien_gene(alien_gene &g);
     void mutate();
     QString toString();
+    Schtroumpf *getS() const;
 };
 
 #endif // ALIEN_GENE_H
