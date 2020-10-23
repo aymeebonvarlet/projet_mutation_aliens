@@ -1,6 +1,26 @@
 #include "parameters.h"
+#include "../../shared/qstd.h"
+using namespace qstd;
 
-Parameters::Parameters()
+int Parameters::individualsNb = 10;
+int Parameters::generationsMaxNb = 50;
+int Parameters::initialGenesNb = 10;
+int Parameters::minFitnessGlobal = 0;
+
+double Parameters::mutationRate_schtroumpf=0.1;
+double Parameters::mutationRate_tentasize=0.2;
+double Parameters::mutationAddRate_schtroumpf=0.2;
+double Parameters::mutationAddRate_tentasize=0.2;
+double Parameters::mutationDeleteRate_schtroumpf=0.1;
+double Parameters::mutationDeleteRate_tentasize=0.1;
+double Parameters::crossoverRate = 0.6;
+// TODO : modifier la graine
+
+int Parameters::debug = 1;
+
+void Parameters::print(QString txt, int d)
 {
-
+    if(d<debug)
+        cout<<txt<<endl;
 }
+

@@ -2,7 +2,6 @@
 #define PARAMETERS_H
 
 #include <QString>
-#include "myrandom.h"
 
 class Parameters
 {
@@ -21,7 +20,6 @@ public:
     static double mutationAddRate_tentasize;
     static double mutationDeleteRate_tentasize;
 
-    static MyRandom *random_generator;
 
     static int debug;
     static void print(QString txt, int d);

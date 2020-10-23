@@ -10,6 +10,7 @@ private:
 public:
     Tentaclessize(int t, double f);
     void mutate();
+    static double def_fitness_tentacle(int taille);
     //getter et setter
     int getTaille() const;
     void setTaille(int value);

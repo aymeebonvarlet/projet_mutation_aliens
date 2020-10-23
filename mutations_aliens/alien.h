@@ -7,23 +7,20 @@
 class Alien
 {
 private:
-    double fitness=-1;
     Schtroumpf *s;
-    Tentaclessize ts;
+    Tentaclessize *ts;
+    double fitness=-1;
 public:
-    Alien(double f=-1, Schtroumpf *st, Tentaclessize t);
+    Alien(Schtroumpf *st, Tentaclessize *t, double f=-1);
     Schtroumpf* sf(Alien *parent1, Alien *parent2);
-    Tentaclessize t(Alien *parent1, Alien *parent2);
-    couleur_ind couleur_individual(gene_couleur c1, gene_couleur c2);
-    double def_fitness_schtroumpf(couleur_ind c);
-    double def_fitness_tentacle(int taille);
-    double def_fitness_global(Alien a);
+    Tentaclessize* t(Alien *parent1, Alien *parent2);
     QString toString();
     //getter
     Schtroumpf *getS() const;
     Tentaclessize getTs() const;
     double getFitness() const;
     double getfitness() const;
+    void setFitness(double value);
 };
 
 #endif // ALIEN_H

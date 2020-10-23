@@ -8,7 +8,6 @@ class Evolutionnary_process
 {
 private:
     QList <Alien *> population;
-    double bestFitness;
     Alien *selection();
     void survival(QList <Alien *> &newGeneration);
 

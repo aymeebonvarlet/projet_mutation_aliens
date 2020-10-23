@@ -19,6 +19,12 @@ Tentaclessize::Tentaclessize(int t, double f) : taille(t) , fitness(f)
 
 }
 
+double Tentaclessize::def_fitness_tentacle(int taille)
+{
+    return taille;
+
+}
+
 int Tentaclessize::getTaille() const
 {
     return taille;

@@ -46,7 +46,50 @@ Schtroumpf::Schtroumpf(gene_couleur c1, gene_couleur c2, couleur_ind c, double f
 
 
 
+
 void Schtroumpf::mutate()
 {
 
+}
+
+couleur_ind Schtroumpf::couleur_individual(gene_couleur c1, gene_couleur c2)
+{
+    if (c1==R or c2 == R){
+        return Rouge;
+    }
+    else {
+        if (c1==v){
+            if (c2==v){
+                return Vert;
+            }
+            else{
+                return Jaune;
+            }
+        }
+        else{
+            if (c2==b){
+                return Bleu;
+            }
+            else{
+                return Jaune;
+            }
+        }
+    }
+
+}
+
+double Schtroumpf::def_fitness_schtroumpf(couleur_ind c)
+{
+    if (c==Rouge){
+        return 1;
+    }
+    if (c==Vert){
+        return 5;
+    }
+    if (c==Jaune){
+        return 12;
+    }
+    if (c==Bleu){
+        return 20;
+    }
 }
