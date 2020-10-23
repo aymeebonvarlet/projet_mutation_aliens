@@ -16,6 +16,9 @@ Tentaclessize Alien::t(Alien *parent1, Alien *parent2)
     //on récupère le génome des parents ainsi que la taille des tentacules
     Tentaclessize gene_p1 = parent1->getTs();
     Tentaclessize gene_p2 = parent2->getTs();
+    int min_borne = 0;
+    int max_borne = 15;
+    int x = rand()%(max_borne-min_borne+1)+1;
 
 }
 
