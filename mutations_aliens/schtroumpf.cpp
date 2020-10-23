@@ -3,30 +3,6 @@
 #include "QTextStream"
 
 
-couleur_ind Schtroumpf::couleur_individual(gene_couleur c1, gene_couleur c2)
-{
-    if (c1==R or c2 == R){
-        return Rouge;
-    }
-    else {
-        if (c1==v){
-            if (c2==v){
-                return Vert;
-            }
-            else{
-                return Jaune;
-            }
-        }
-        else{
-            if (c2==b){
-                return Bleu;
-            }
-            else{
-                return Jaune;
-            }
-        }
-    }
-}
 
 gene_couleur Schtroumpf::getChrom1() const
 {
@@ -54,21 +30,6 @@ double Schtroumpf::getFitness() const
 }
 
 
-double Schtroumpf::definition_fitness(couleur_ind c)
-{
-    if (c==Rouge){
-        return 1;
-    }
-    if (c==Vert){
-        return 5;
-    }
-    if (c==Jaune){
-        return 12;
-    }
-    if (c==Bleu){
-        return 20;
-    }
-}
 
 QString Schtroumpf::toString()
 {
@@ -78,7 +39,7 @@ QString Schtroumpf::toString()
     return res;
 }
 
-Schtroumpf::Schtroumpf(gene_couleur c1, gene_couleur c2, double f, couleur_ind c) : chrom1(c1) , chrom2(c2), fitness(f), c(couleur)
+Schtroumpf::Schtroumpf(gene_couleur c1, gene_couleur c2, couleur_ind c, double f) : chrom1(c1) , chrom2(c2), c(couleur), fitness(f)
 {
     
 }

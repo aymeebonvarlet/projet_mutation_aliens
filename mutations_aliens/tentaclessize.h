@@ -14,7 +14,6 @@ public:
     int getTaille() const;
     void setTaille(int value);
     double getFitness() const;
-    double def_fitness(int taille);
     QString toString();
 
 };

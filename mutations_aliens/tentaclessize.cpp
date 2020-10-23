@@ -5,10 +5,6 @@ double tentaclessize::getFitness() const
     return fitness;
 }
 
-double tentaclessize::def_fitness(int taille)
-{
-    return taille;
-}
 
 QString tentaclessize::toString()
 {

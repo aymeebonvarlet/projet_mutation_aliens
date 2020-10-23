@@ -12,16 +12,14 @@ private:
     double fitness;
     couleur_ind couleur;
 public:
-    Schtroumpf(gene_couleur c1, gene_couleur c2, double f, couleur_ind c);
+    Schtroumpf(gene_couleur c1, gene_couleur c2, couleur_ind c, double f);
     void mutate();
-    couleur_ind couleur_individual(gene_couleur c1, gene_couleur c2);
     //getter et setter
     gene_couleur getChrom1() const;
     void setChrom1(const gene_couleur &value);
     gene_couleur getChrom2() const;
     void setChrom2(const gene_couleur &value);
     double getFitness() const;
-    double definition_fitness(couleur_ind c);
     QString toString();
 };
 
