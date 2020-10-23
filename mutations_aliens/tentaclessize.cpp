@@ -1,12 +1,12 @@
 #include "tentaclessize.h"
 #include <QTextStream>
-double tentaclessize::getFitness() const
+double Tentaclessize::getFitness() const
 {
     return fitness;
 }
 
 
-QString tentaclessize::toString()
+QString Tentaclessize::toString()
 {
     QString res;
     QTextStream buf(&res);
@@ -14,17 +14,17 @@ QString tentaclessize::toString()
     return res;
 }
 
-tentaclessize::tentaclessize(int t, double f) : taille(t) , fitness(f)
+Tentaclessize::Tentaclessize(int t, double f) : taille(t) , fitness(f)
 {
 
 }
 
-int tentaclessize::getTaille() const
+int Tentaclessize::getTaille() const
 {
     return taille;
 }
 
-void tentaclessize::setTaille(int value)
+void Tentaclessize::setTaille(int value)
 {
     taille = value;
 }

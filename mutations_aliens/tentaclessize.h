@@ -2,13 +2,13 @@
 #define TENTACLESSIZE_H
 #include <QString>
 
-class tentaclessize
+class Tentaclessize
 {
 private:
     int taille;
     double fitness;
 public:
-    tentaclessize(int t, double f);
+    Tentaclessize(int t, double f);
     void mutate();
     //getter et setter
     int getTaille() const;

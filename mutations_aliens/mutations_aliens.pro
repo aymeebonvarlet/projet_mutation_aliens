@@ -12,11 +12,10 @@ SOURCES += \
     ../../06_GenetiqueLabyrinthe Etudiant/myrandom.cpp \
     ../../shared/qstd.cpp \
     alien.cpp \
-    alien_gene.cpp \
+    aliens_populations.cpp \
     evolutionnary_process.cpp \
     main.cpp \
     mainwindow.cpp \
-    myrandom.cpp \
     parameters.cpp \
     schtroumpf.cpp \
     tentaclessize.cpp
@@ -25,10 +24,9 @@ HEADERS += \
     ../../06_GenetiqueLabyrinthe Etudiant/myrandom.h \
     ../../shared/qstd.h \
     alien.h \
-    alien_gene.h \
+    aliens_populations.h \
     evolutionnary_process.h \
     mainwindow.h \
-    myrandom.h \
     parameters.h \
     schtroumpf.h \
     tentaclessize.h
