@@ -14,7 +14,6 @@ public:
     QString toString();
     void run();
     static void init();
-    static double def_fitness_global(Alien* a);
     static QList<Alien *> getL_Alien();
 };
 

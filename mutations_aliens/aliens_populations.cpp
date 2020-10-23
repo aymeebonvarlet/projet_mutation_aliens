@@ -45,7 +45,7 @@ void Aliens_populations::init()
 
     //on évalue les fitness de chaque nouvel individu
     for (int i = 0 ; i<7 ; i++){
-        double a = def_fitness_global(l_Alien[i]);
+        double a = Alien::def_fitness_global(l_Alien[i]);
         l_Alien[i]->setFitness(a);
     }
 }
@@ -55,13 +55,7 @@ void Aliens_populations::init()
 
 
 
-double Aliens_populations::def_fitness_global(Alien *a)
-{
-    double fitness_s = a->getS()->getFitness();
-    double fitness_t = a->getTs().getFitness();
-    double fitness_global = fitness_s + fitness_t;
-    return fitness_global;
-}
+
 
 
 

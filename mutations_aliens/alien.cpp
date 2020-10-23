@@ -18,7 +18,7 @@ Tentaclessize Alien::t(Alien *parent1, Alien *parent2)
     int taille_p2 = parent2->getTs().getTaille();
     //on fait la variable random (On peut la représenter par l'environement du nouvel individu)
     int min_borne = 0;
-    int max_borne = 12;
+    int max_borne = 8;
     int x = rand()%(max_borne-min_borne+1)+1;
     //on fait la variable random pour savoir quel impact l'environement aura
     int max_borne2 = 2;
@@ -88,13 +88,21 @@ Schtroumpf* Alien::sf(Alien *parent1, Alien *parent2)
     //on injecte maintenant dans la nouvelle liste en fonction de x et y
     l_new_alien<<l_p1[x]<<l_p2[y];
     //on définit la couleur de l'alien en fonction de ces nouveaux chromos
-    couleur_ind c = couleur_individual(l_new_alien[0], l_new_alien[1]);
+    couleur_ind c = Schtroumpf::couleur_individual(l_new_alien[0], l_new_alien[1]);
     //on définit le fitness en fonction de la couleur
-    double fitness_s= def_fitness_schtroumpf(c);
+    double fitness_s= Schtroumpf::def_fitness_schtroumpf(c);
     //on créait le gène Schtroupf finalisé
     Schtroumpf* new_s = new Schtroumpf(l_new_alien[0], l_new_alien[1],c,fitness_s);
     return new_s;
 
+}
+
+double Alien::def_fitness_global(Alien *a)
+{
+    double fitness_s = a->getS()->getFitness();
+    double fitness_t = a->getTs().getFitness();
+    double fitness_global = fitness_s + fitness_t;
+    return fitness_global;
 }
 
 
@@ -126,36 +134,9 @@ couleur_ind Alien::couleur_individual(gene_couleur c1, gene_couleur c2)
 
 }
 
-double Alien::def_fitness_schtroumpf(couleur_ind c)
-{
-    if (c==Rouge){
-        return 1;
-    }
-    if (c==Vert){
-        return 5;
-    }
-    if (c==Jaune){
-        return 12;
-    }
-    if (c==Bleu){
-        return 20;
-    }
-
-}
-
-double Alien::def_fitness_tentacle(int taille)
-{
-
-        return taille;
 
 
-}
 
-double Alien::def_fitness_global(Alien a)
-{
-    double fitness_s = a.getS()->getFitness();
-    double fitness_t = a.getTs().getFitness();
-    double fitness_global = fitness_s + fitness_t;
-    return fitness_global;
-}
+
+
 
