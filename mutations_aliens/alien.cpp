@@ -55,10 +55,7 @@ Schtroumpf *Alien::getS() const
     return s;
 }
 
-Tentaclessize Alien::getTs() const
-{
-    return ts;
-}
+
 
 double Alien::getFitness() const
 {
@@ -67,6 +64,11 @@ double Alien::getFitness() const
 
 //fonction permmetant de retourner le gène Schtroumpf du nouvel individu créer à partir de 2 parents
 
+
+Tentaclessize *Alien::getTs() const
+{
+    return ts;
+}
 
 Schtroumpf* Alien::sf(Alien *parent1, Alien *parent2)
 {
@@ -107,32 +109,6 @@ double Alien::def_fitness_global(Alien *a)
 
 
 
-
-couleur_ind Alien::couleur_individual(gene_couleur c1, gene_couleur c2)
-{
-    if (c1==R or c2 == R){
-        return Rouge;
-    }
-    else {
-        if (c1==v){
-            if (c2==v){
-                return Vert;
-            }
-            else{
-                return Jaune;
-            }
-        }
-        else{
-            if (c2==b){
-                return Bleu;
-            }
-            else{
-                return Jaune;
-            }
-        }
-    }
-
-}
 
 
 

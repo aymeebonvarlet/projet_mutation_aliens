@@ -18,10 +18,10 @@ public:
     QString toString();
     //getter
     Schtroumpf *getS() const;
-    Tentaclessize getTs() const;
     double getFitness() const;
     double getfitness() const;
     void setFitness(double value);
+    Tentaclessize *getTs() const;
 };
 
 #endif // ALIEN_H
