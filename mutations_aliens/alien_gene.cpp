@@ -14,5 +14,8 @@ alien_gene::alien_gene(Schtroumpf *schtroumph, tentaclessize tents) : s(schtroum
 
 QString alien_gene::toString()
 {
-
+    QString res;
+    QTextStream buf(&res);
+    buf << " L'alien est défini par le gêne Schtroumph "<< s <<" et le gêne tentaclessize "<< *ts <<endl;
+    return res;
 }
