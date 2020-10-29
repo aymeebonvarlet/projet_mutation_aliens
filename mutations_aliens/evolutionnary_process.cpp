@@ -1,5 +1,6 @@
 #include "evolutionnary_process.h"
 #include "parameters.h"
+#include <QTextStream>
 
 
 
@@ -72,7 +73,13 @@ void Evolutionnary_process::init()
 
 QString Evolutionnary_process::toString()
 {
-
+ //Retourner la liste de la population
+    QString res;
+    QTextStream buf(&res);
+    for (int all= 0; all < 7 ; all++){
+        buf<<"Alien n°"<<all<<" "<<l_Alien[all]->toString()<<endl;
+    }
+    return res;
 }
 
 
