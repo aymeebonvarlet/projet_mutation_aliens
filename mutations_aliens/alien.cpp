@@ -15,7 +15,7 @@ Alien::Alien( Schtroumpf *st, Tentaclessize *t,double f) : s(st), ts(t) ,fitness
 
 }
 
-Tentaclessize *Alien::t(Alien *parent1, Alien *parent2)
+Tentaclessize *Alien::new_gene_t(Alien *parent1, Alien *parent2)
 {
     srand(time(NULL));
     //on récupère la valeur de la taille des tentacules des parents
@@ -79,7 +79,7 @@ Tentaclessize *Alien::getTs() const
     return ts;
 }
 
-Schtroumpf* Alien::sf(Alien *parent1, Alien *parent2)
+Schtroumpf* Alien::new_gene_s(Alien *parent1, Alien *parent2)
 {
     srand(time(NULL));
     //On récupère le gène parent des parents

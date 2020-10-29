@@ -1,6 +1,7 @@
 #include "evolutionnary_process.h"
 #include "parameters.h"
 #include <QTextStream>
+#include "alien.h"
 
 
 
@@ -20,15 +21,30 @@ Evolutionnary_process::Evolutionnary_process()
 
 void Evolutionnary_process::run()
 {
-    Evolutionnary_process();
+    QList<Alien *> new_aliens;
     //on commence par la première génération qui est différente des autres
     //on run que pour la première génération
     for (int p1 = 0; p1<7 ; p1++){
         int min_borne = 0;
         int max_borne = 6;
         int p2 = rand()%(max_borne-min_borne+1)+1;
-
+        Schtroumpf *new_s = Alien::new_gene_s(l_Alien[p1],l_Alien[p2]);
+        Tentaclessize *new_t = Alien::new_gene_t(l_Alien[p1],l_Alien[p2]);
+        Alien *new_a = new Alien(new_s,new_t);
+        new_a->setFitness(Alien::def_fitness_global(new_a));
+        new_aliens.append(new_a);
     }
+    //on range les aliens dans la nouvelle liste en fonctionde leurs fitness
+    for (int i=0 ; i<7 ; i++){
+        for (int j=1 ; j<7 ; j++){
+            if (new_aliens[i]->getfitness()<new_aliens[j]->getFitness()){
+                Alien *index= new_aliens[i];
+                new_aliens[i]=new_aliens[j];
+                new_aliens[j]=index;
+            }
+        }
+    }
+    survival(new_aliens);
 
 }
 

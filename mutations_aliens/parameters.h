@@ -12,8 +12,6 @@ public:
     static int minFitnessGlobal;
 
     static double mutationRate_schtroumpf;
-    static double mutationAddRate_schtroumpf;
-    static double mutationDeleteRate_schtroumpf;
     static double crossoverRate;
 
     static double mutationRate_tentasize;

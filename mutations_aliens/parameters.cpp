@@ -9,9 +9,7 @@ int Parameters::minFitnessGlobal = 0;
 
 double Parameters::mutationRate_schtroumpf=0.1;
 double Parameters::mutationRate_tentasize=0.2;
-double Parameters::mutationAddRate_schtroumpf=0.2;
 double Parameters::mutationAddRate_tentasize=0.2;
-double Parameters::mutationDeleteRate_schtroumpf=0.1;
 double Parameters::mutationDeleteRate_tentasize=0.1;
 double Parameters::crossoverRate = 0.6;
 // TODO : modifier la graine

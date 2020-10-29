@@ -1,6 +1,7 @@
 #include "schtroumpf.h"
 #include "random.h"
 #include "QTextStream"
+#include "parameters.h"
 
 
 
@@ -49,7 +50,15 @@ Schtroumpf::Schtroumpf(gene_couleur c1, gene_couleur c2, couleur_ind c, double f
 
 void Schtroumpf::mutate()
 {
+    double x = rand()/RAND_MAX;
+    if (x<Parameters::mutationRate_schtroumpf){
+        int min_borne = 1;
+        int max_borne = 4;
+        int x = rand()%(max_borne-min_borne+1)+1;
+        if (x%2==0){
 
+        }
+    }
 }
 
 couleur_ind Schtroumpf::couleur_individual(gene_couleur c1, gene_couleur c2)
