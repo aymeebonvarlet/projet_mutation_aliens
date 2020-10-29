@@ -6,8 +6,9 @@ using namespace qstd;
 
 int main(int argc, char *argv[])
 {
-    Evolutionnary_process::init();
-    Evolutionnary_process::toString();
+    Evolutionnary_process evo;
+    evo.init();
+    cout<<evo.toString()<<endl;
     QApplication a(argc, argv);
     MainWindow w;
     w.show();

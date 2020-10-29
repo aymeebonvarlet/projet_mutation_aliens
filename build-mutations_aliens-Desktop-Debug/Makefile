@@ -409,8 +409,7 @@ qstd.o: ../../shared/qstd.cpp ../../shared/qstd.h
 
 alien.o: ../mutations_aliens/alien.cpp ../mutations_aliens/alien.h \
 		../mutations_aliens/schtroumpf.h \
-		../mutations_aliens/tentaclessize.h \
-		../mutations_aliens/alien_gene.h
+		../mutations_aliens/tentaclessize.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o alien.o ../mutations_aliens/alien.cpp
 
 evolutionnary_process.o: ../mutations_aliens/evolutionnary_process.cpp ../mutations_aliens/evolutionnary_process.h \
@@ -437,7 +436,6 @@ parameters.o: ../mutations_aliens/parameters.cpp ../mutations_aliens/parameters.
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o parameters.o ../mutations_aliens/parameters.cpp
 
 schtroumpf.o: ../mutations_aliens/schtroumpf.cpp ../mutations_aliens/schtroumpf.h \
-		../mutations_aliens/random.h \
 		../mutations_aliens/parameters.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o schtroumpf.o ../mutations_aliens/schtroumpf.cpp
 

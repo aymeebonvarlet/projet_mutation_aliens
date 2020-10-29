@@ -39,7 +39,7 @@ void Evolutionnary_process::run()
     //on range les aliens dans la nouvelle liste en fonction de leurs fitness
     for (int i=0 ; i<7 ; i++){
         for (int j=1 ; j<7 ; j++){
-            if (new_aliens[i]->getfitness()<new_aliens[j]->getFitness()){
+            if (new_aliens[i]->getFitness()<new_aliens[j]->getFitness()){
                 Alien *index= new_aliens[i];
                 new_aliens[i]=new_aliens[j];
                 new_aliens[j]=index;

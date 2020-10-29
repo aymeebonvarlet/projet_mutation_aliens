@@ -46,7 +46,6 @@ couleur_ind Schtroumpf::getCouleur() const
 
 void Schtroumpf::setCouleur(const couleur_ind &value)
 {
-#include "alien_gene.h"
     couleur = value;
 }
 

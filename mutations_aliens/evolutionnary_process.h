@@ -7,14 +7,14 @@
 class Evolutionnary_process
 {
 private:
-    static QList <Alien *> l_Alien;
+    QList<Alien *> l_Alien;
     Alien *selection();
     void survival(QList <Alien *> &newGeneration);
 public:
     Evolutionnary_process();
     void run();
-    static void init();
-    static QString toString();
+    void init();
+    QString toString();
 };
 
 #endif // EVOLUTIONNARY_PROCESS_H

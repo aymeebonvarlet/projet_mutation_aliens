@@ -4,6 +4,11 @@
 #include <QTextStream>
 
 
+void Alien::setFitness(double value)
+{
+    fitness = value;
+}
+
 Alien::Alien()
 {
 
@@ -53,6 +58,8 @@ double Alien::getFitness() const
 {
     return fitness;
 }
+
+
 
 //fonction permmetant de retourner le gène Schtroumpf du nouvel individu créer à partir de 2 parents
 

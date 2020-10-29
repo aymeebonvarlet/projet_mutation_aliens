@@ -20,9 +20,8 @@ public:
     //getter
     Schtroumpf *getS() const;
     double getFitness() const;
-    double getfitness() const;
-    void setFitness(double value);
     Tentaclessize *getTs() const;
+    void setFitness(double value);
 };
 
 #endif // ALIEN_H
