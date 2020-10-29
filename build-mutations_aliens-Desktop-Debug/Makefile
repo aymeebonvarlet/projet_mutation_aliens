@@ -52,10 +52,22 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../mutations_aliens/main.cpp \
-		../mutations_aliens/mainwindow.cpp moc_mainwindow.cpp
-OBJECTS       = main.o \
+SOURCES       = ../../shared/qstd.cpp \
+		../mutations_aliens/alien.cpp \
+		../mutations_aliens/evolutionnary_process.cpp \
+		../mutations_aliens/main.cpp \
+		../mutations_aliens/mainwindow.cpp \
+		../mutations_aliens/parameters.cpp \
+		../mutations_aliens/schtroumpf.cpp \
+		../mutations_aliens/tentaclessize.cpp moc_mainwindow.cpp
+OBJECTS       = qstd.o \
+		alien.o \
+		evolutionnary_process.o \
+		main.o \
 		mainwindow.o \
+		parameters.o \
+		schtroumpf.o \
+		tentaclessize.o \
 		moc_mainwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -113,6 +125,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		../mutations_aliens/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -132,8 +145,20 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../mutations_aliens/mutations_aliens.pro ../mutations_aliens/mainwindow.h ../mutations_aliens/main.cpp \
-		../mutations_aliens/mainwindow.cpp
+		../mutations_aliens/mutations_aliens.pro ../../shared/qstd.h \
+		../mutations_aliens/alien.h \
+		../mutations_aliens/evolutionnary_process.h \
+		../mutations_aliens/mainwindow.h \
+		../mutations_aliens/parameters.h \
+		../mutations_aliens/schtroumpf.h \
+		../mutations_aliens/tentaclessize.h ../../shared/qstd.cpp \
+		../mutations_aliens/alien.cpp \
+		../mutations_aliens/evolutionnary_process.cpp \
+		../mutations_aliens/main.cpp \
+		../mutations_aliens/mainwindow.cpp \
+		../mutations_aliens/parameters.cpp \
+		../mutations_aliens/schtroumpf.cpp \
+		../mutations_aliens/tentaclessize.cpp
 QMAKE_TARGET  = mutations_aliens
 DESTDIR       = 
 TARGET        = mutations_aliens
@@ -201,6 +226,7 @@ Makefile: ../mutations_aliens/mutations_aliens.pro /usr/lib/x86_64-linux-gnu/qt5
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -278,6 +304,7 @@ Makefile: ../mutations_aliens/mutations_aliens.pro /usr/lib/x86_64-linux-gnu/qt5
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -313,8 +340,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../mutations_aliens/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../mutations_aliens/main.cpp ../mutations_aliens/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../shared/qstd.h ../mutations_aliens/alien.h ../mutations_aliens/evolutionnary_process.h ../mutations_aliens/mainwindow.h ../mutations_aliens/parameters.h ../mutations_aliens/schtroumpf.h ../mutations_aliens/tentaclessize.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../shared/qstd.cpp ../mutations_aliens/alien.cpp ../mutations_aliens/evolutionnary_process.cpp ../mutations_aliens/main.cpp ../mutations_aliens/mainwindow.cpp ../mutations_aliens/parameters.cpp ../mutations_aliens/schtroumpf.cpp ../mutations_aliens/tentaclessize.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../mutations_aliens/mainwindow.ui $(DISTDIR)/
 	$(COPY_FILE) --parents mutations_aliens_fr_FR.ts $(DISTDIR)/
 
@@ -377,12 +404,46 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
-main.o: ../mutations_aliens/main.cpp ../mutations_aliens/mainwindow.h
+qstd.o: ../../shared/qstd.cpp ../../shared/qstd.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qstd.o ../../shared/qstd.cpp
+
+alien.o: ../mutations_aliens/alien.cpp ../mutations_aliens/alien.h \
+		../mutations_aliens/schtroumpf.h \
+		../mutations_aliens/tentaclessize.h \
+		../mutations_aliens/alien_gene.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o alien.o ../mutations_aliens/alien.cpp
+
+evolutionnary_process.o: ../mutations_aliens/evolutionnary_process.cpp ../mutations_aliens/evolutionnary_process.h \
+		../mutations_aliens/alien.h \
+		../mutations_aliens/schtroumpf.h \
+		../mutations_aliens/tentaclessize.h \
+		../mutations_aliens/parameters.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o evolutionnary_process.o ../mutations_aliens/evolutionnary_process.cpp
+
+main.o: ../mutations_aliens/main.cpp ../mutations_aliens/mainwindow.h \
+		../../shared/qstd.h \
+		../mutations_aliens/evolutionnary_process.h \
+		../mutations_aliens/alien.h \
+		../mutations_aliens/schtroumpf.h \
+		../mutations_aliens/tentaclessize.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../mutations_aliens/main.cpp
 
 mainwindow.o: ../mutations_aliens/mainwindow.cpp ../mutations_aliens/mainwindow.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../mutations_aliens/mainwindow.cpp
+
+parameters.o: ../mutations_aliens/parameters.cpp ../mutations_aliens/parameters.h \
+		../../shared/qstd.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o parameters.o ../mutations_aliens/parameters.cpp
+
+schtroumpf.o: ../mutations_aliens/schtroumpf.cpp ../mutations_aliens/schtroumpf.h \
+		../mutations_aliens/random.h \
+		../mutations_aliens/parameters.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o schtroumpf.o ../mutations_aliens/schtroumpf.cpp
+
+tentaclessize.o: ../mutations_aliens/tentaclessize.cpp ../mutations_aliens/tentaclessize.h \
+		../mutations_aliens/parameters.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tentaclessize.o ../mutations_aliens/tentaclessize.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

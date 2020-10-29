@@ -12,7 +12,8 @@ private:
     double fitness;
     couleur_ind couleur;
 public:
-    Schtroumpf(gene_couleur c1, gene_couleur c2, couleur_ind c, double f);
+    Schtroumpf();
+    Schtroumpf(gene_couleur c1, gene_couleur c2, couleur_ind c, double g);
     static void mutate(Schtroumpf s);
     static couleur_ind couleur_individual(gene_couleur c1, gene_couleur c2);
     static double def_fitness_schtroumpf(couleur_ind c);

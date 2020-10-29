@@ -9,7 +9,6 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    ../../06_GenetiqueLabyrinthe Etudiant/myrandom.cpp \
     ../../shared/qstd.cpp \
     alien.cpp \
     evolutionnary_process.cpp \
@@ -20,7 +19,6 @@ SOURCES += \
     tentaclessize.cpp
 
 HEADERS += \
-    ../../06_GenetiqueLabyrinthe Etudiant/myrandom.h \
     ../../shared/qstd.h \
     alien.h \
     evolutionnary_process.h \

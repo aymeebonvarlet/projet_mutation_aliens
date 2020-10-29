@@ -1,5 +1,4 @@
 #include "schtroumpf.h"
-#include "random.h"
 #include "QTextStream"
 #include "parameters.h"
 
@@ -55,9 +54,14 @@ void Schtroumpf::setFitness(double value)
     fitness = value;
 }
 
-Schtroumpf::Schtroumpf(gene_couleur c1, gene_couleur c2, couleur_ind c, double f) : chrom1(c1) , chrom2(c2), c(couleur), fitness(f)
+Schtroumpf::Schtroumpf()
 {
     
+}
+
+Schtroumpf::Schtroumpf(gene_couleur c1, gene_couleur c2, couleur_ind c, double g): chrom1(c1), chrom2(c2), couleur(c), fitness(g)
+{
+
 }
 
 
@@ -128,16 +132,18 @@ couleur_ind Schtroumpf::couleur_individual(gene_couleur c1, gene_couleur c2)
 
 double Schtroumpf::def_fitness_schtroumpf(couleur_ind c)
 {
+    double a;
     if (c==Rouge){
-        return 1;
+        a=1;
     }
     if (c==Vert){
-        return 5;
+        a=5;
     }
     if (c==Jaune){
-        return 12;
+        a=12;
     }
     if (c==Bleu){
-        return 20;
+        a=20;
     }
+    return a;
 }

@@ -14,7 +14,7 @@ public:
     Evolutionnary_process();
     void run();
     static void init();
-    QString toString();
+    static QString toString();
 };
 
 #endif // EVOLUTIONNARY_PROCESS_H

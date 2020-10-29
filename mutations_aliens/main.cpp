@@ -7,6 +7,7 @@ using namespace qstd;
 int main(int argc, char *argv[])
 {
     Evolutionnary_process::init();
+    Evolutionnary_process::toString();
     QApplication a(argc, argv);
     MainWindow w;
     w.show();

@@ -31,11 +31,12 @@ void Evolutionnary_process::run()
         Schtroumpf *new_s = Alien::new_gene_s(l_Alien[p1],l_Alien[p2]);
         Schtroumpf::mutate(*new_s);
         Tentaclessize *new_t = Alien::new_gene_t(l_Alien[p1],l_Alien[p2]);
+        Tentaclessize::mutate(*new_t);
         Alien *new_a = new Alien(new_s,new_t);
         new_a->setFitness(Alien::def_fitness_global(new_a));
         new_aliens.append(new_a);
     }
-    //on range les aliens dans la nouvelle liste en fonctionde leurs fitness
+    //on range les aliens dans la nouvelle liste en fonction de leurs fitness
     for (int i=0 ; i<7 ; i++){
         for (int j=1 ; j<7 ; j++){
             if (new_aliens[i]->getfitness()<new_aliens[j]->getFitness()){

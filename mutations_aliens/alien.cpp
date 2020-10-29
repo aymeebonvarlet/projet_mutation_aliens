@@ -1,7 +1,6 @@
 #include "alien.h"
 #include "schtroumpf.h"
 #include <time.h>
-#include "alien_gene.h"
 #include <QTextStream>
 
 
@@ -36,7 +35,7 @@ QString Alien::toString()
 {
     QString res;
     QTextStream buf(&res);
-    buf << " L'alien est défini par le gêne Schtroumph :"<< s->toString() <<" et le gêne tentaclessize "<< ts.toString() <<endl;
+    buf << " L'alien est défini par le gêne Schtroumph :"<< s->toString() <<" et le gêne tentaclessize "<< ts->toString() <<endl;
     return res;
 }
 
