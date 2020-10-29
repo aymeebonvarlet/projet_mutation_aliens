@@ -1,5 +1,6 @@
 #include "tentaclessize.h"
 #include <QTextStream>
+#include "parameters.h"
 double Tentaclessize::getFitness() const
 {
     return fitness;
@@ -21,7 +22,10 @@ Tentaclessize::Tentaclessize(int t, double f) : taille(t) , fitness(f)
 
 void Tentaclessize::mutate(Tentaclessize t)
 {
+    double x = rand()/RAND_MAX;
+    if (x<Parameters::mutationRate_tentasize){
 
+    }
 }
 
 double Tentaclessize::def_fitness_tentacle(int taille)
