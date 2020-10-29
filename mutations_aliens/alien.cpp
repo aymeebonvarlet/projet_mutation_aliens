@@ -10,6 +10,11 @@ Alien::Alien()
 
 }
 
+Alien::Alien( Schtroumpf *st, Tentaclessize *t,double f) : s(st), ts(t) ,fitness(f)
+{
+
+}
+
 Tentaclessize *Alien::t(Alien *parent1, Alien *parent2)
 {
     srand(time(NULL));

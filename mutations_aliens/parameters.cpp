@@ -4,7 +4,7 @@ using namespace qstd;
 
 int Parameters::individualsNb = 7;
 int Parameters::generationsMaxNb = 50;
-int Parameters::initialGenesNb = 10;
+int Parameters::initialGenesNb = 2;
 int Parameters::minFitnessGlobal = 0;
 
 double Parameters::mutationRate_schtroumpf=0.1;
