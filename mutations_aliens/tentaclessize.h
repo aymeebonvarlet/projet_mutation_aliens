@@ -5,15 +5,15 @@
 class Tentaclessize
 {
 private:
-    int taille;
+    double taille;
     double fitness;
 public:
     Tentaclessize(int t, double f);
     static void mutate(Tentaclessize t);
     static double def_fitness_tentacle(int taille);
     //getter et setter
-    int getTaille() const;
-    void setTaille(int value);
+    double getTaille() const;
+    void setTaille(double value);
     double getFitness() const;
     QString toString();
 
