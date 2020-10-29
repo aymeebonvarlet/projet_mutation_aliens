@@ -12,7 +12,6 @@ SOURCES += \
     ../../06_GenetiqueLabyrinthe Etudiant/myrandom.cpp \
     ../../shared/qstd.cpp \
     alien.cpp \
-    aliens_populations.cpp \
     evolutionnary_process.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -24,7 +23,6 @@ HEADERS += \
     ../../06_GenetiqueLabyrinthe Etudiant/myrandom.h \
     ../../shared/qstd.h \
     alien.h \
-    aliens_populations.h \
     evolutionnary_process.h \
     mainwindow.h \
     parameters.h \

@@ -5,12 +5,9 @@
 class Aliens_populations
 {
 private:
-    static QList<Alien *> l_Alien;
     double bestFitness;
 public:
-    QString toString();
-    static void init();
-    static QList<Alien *> getL_Alien();
+
     double getBestFitness() const;
     void setBestFitness(double value);
 };

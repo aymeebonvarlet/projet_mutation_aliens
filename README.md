@@ -55,3 +55,12 @@ Petites tentacules
 On donc 3 tailles de tentacules pour notre alien, sachant que celui avec les plus grandes tentacules aura un meilleure fitness que celui avec les petites
 
 à faire: simulation d'une seule génération d'alien, donc à essayer: faire 2 parents et choisir la bonne transmission des gènes
+
+à rendre le 24/12/20
+
+1 -  IA projet génétique
+    -> git
+    -> pdf 
+    >explicatif 
+    >methode de raccrochage à l'algorithme : gène -> génome -> individu -> population -> test unitaires
+    console -> zoom sur section +  explication 
