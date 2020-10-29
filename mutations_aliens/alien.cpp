@@ -5,7 +5,7 @@
 #include <QTextStream>
 
 
-Alien::Alien( Schtroumpf *st, Tentaclessize *t,double f) : s(st), ts(t) ,fitness(f)
+Alien::Alien()
 {
 
 }

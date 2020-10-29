@@ -11,7 +11,7 @@ private:
     Tentaclessize *ts;
     double fitness=-1;
 public:
-    Alien(Schtroumpf *st, Tentaclessize *t, double f=-1);
+    Alien();
     Schtroumpf* sf(Alien *parent1, Alien *parent2);
     Tentaclessize* t(Alien *parent1, Alien *parent2);
     static double def_fitness_global(Alien* a);

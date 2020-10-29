@@ -13,7 +13,8 @@ Evolutionnary_process::Evolutionnary_process()
 {
     Aliens_populations::init();
     for(int i=0 ; i<Parameters::individualsNb; i++){
-        Alien
+        Alien *alien= new Alien();
+        population.append(alien);
     }
 }
 
