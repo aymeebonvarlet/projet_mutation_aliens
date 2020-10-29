@@ -5,18 +5,18 @@
 #include <QTextStream>
 
 
-Alien::Alien(double f, Schtroumpf *st, Tentaclessize t) : fitness(f), s(st), ts(t)
+Alien::Alien( Schtroumpf *st, Tentaclessize *t,double f) : s(st), ts(t) ,fitness(f)
 {
 
 }
 
-Tentaclessize Alien::t(Alien *parent1, Alien *parent2)
+Tentaclessize *Alien::t(Alien *parent1, Alien *parent2)
 {
     srand(time(NULL));
     //on récupère la valeur de la taille des tentacules des parents
-    int taille_p1 = parent1->getTs().getTaille();
-    int taille_p2 = parent2->getTs().getTaille();
-    //on fait la variable random (On peut la représenter par l'environement du nouvel individu)
+    int taille_p1 = parent1->getTs()->getTaille();
+    int taille_p2 = parent2->getTs()->getTaille();
+    //on créait les bornes de la variables random désirée
     int min_borne = 0;
     int max_borne = 8;
     int x = rand()%(max_borne-min_borne+1)+1;
@@ -34,7 +34,11 @@ Tentaclessize Alien::t(Alien *parent1, Alien *parent2)
     else {
         taille_pNew = (taille_p1+taille_p2)/2;
     }
-    return taille_pNew;
+    //on appelle la fonction permettant de définir le nouveau fitness du gène tentacules de l'Alien
+    double fitness_pNew= Tentaclessize::def_fitness_tentacle(taille_pNew);
+    //on créait le nouveau gène
+    Tentaclessize *new_p = new Tentaclessize(taille_pNew, fitness_pNew);
+    return new_p;
 
 
 }
@@ -102,7 +106,7 @@ Schtroumpf* Alien::sf(Alien *parent1, Alien *parent2)
 double Alien::def_fitness_global(Alien *a)
 {
     double fitness_s = a->getS()->getFitness();
-    double fitness_t = a->getTs().getFitness();
+    double fitness_t = a->getTs()->getFitness();
     double fitness_global = fitness_s + fitness_t;
     return fitness_global;
 }
