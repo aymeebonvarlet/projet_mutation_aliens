@@ -29,6 +29,7 @@ void Evolutionnary_process::run()
         int max_borne = 6;
         int p2 = rand()%(max_borne-min_borne+1)+1;
         Schtroumpf *new_s = Alien::new_gene_s(l_Alien[p1],l_Alien[p2]);
+        Schtroumpf::mutate(*new_s);
         Tentaclessize *new_t = Alien::new_gene_t(l_Alien[p1],l_Alien[p2]);
         Alien *new_a = new Alien(new_s,new_t);
         new_a->setFitness(Alien::def_fitness_global(new_a));

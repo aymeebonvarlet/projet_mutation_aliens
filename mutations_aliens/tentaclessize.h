@@ -9,7 +9,7 @@ private:
     double fitness;
 public:
     Tentaclessize(int t, double f);
-    void mutate();
+    static void mutate(Tentaclessize t);
     static double def_fitness_tentacle(int taille);
     //getter et setter
     int getTaille() const;

@@ -13,7 +13,7 @@ private:
     couleur_ind couleur;
 public:
     Schtroumpf(gene_couleur c1, gene_couleur c2, couleur_ind c, double f);
-    static void mutate();
+    static void mutate(Schtroumpf s);
     static couleur_ind couleur_individual(gene_couleur c1, gene_couleur c2);
     static double def_fitness_schtroumpf(couleur_ind c);
     //getter et setter
@@ -23,6 +23,9 @@ public:
     void setChrom2(const gene_couleur &value);
     double getFitness() const;
     QString toString();
+    couleur_ind getCouleur() const;
+    void setCouleur(const couleur_ind &value);
+    void setFitness(double value);
 };
 
 #endif // SCHTROUMPF_H

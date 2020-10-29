@@ -19,6 +19,11 @@ Tentaclessize::Tentaclessize(int t, double f) : taille(t) , fitness(f)
 
 }
 
+void Tentaclessize::mutate(Tentaclessize t)
+{
+
+}
+
 double Tentaclessize::def_fitness_tentacle(int taille)
 {
     double FitnessTentSize = taille / 5;

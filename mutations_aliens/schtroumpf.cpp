@@ -40,6 +40,21 @@ QString Schtroumpf::toString()
     return res;
 }
 
+couleur_ind Schtroumpf::getCouleur() const
+{
+    return couleur;
+}
+
+void Schtroumpf::setCouleur(const couleur_ind &value)
+{
+    couleur = value;
+}
+
+void Schtroumpf::setFitness(double value)
+{
+    fitness = value;
+}
+
 Schtroumpf::Schtroumpf(gene_couleur c1, gene_couleur c2, couleur_ind c, double f) : chrom1(c1) , chrom2(c2), c(couleur), fitness(f)
 {
     
@@ -48,16 +63,40 @@ Schtroumpf::Schtroumpf(gene_couleur c1, gene_couleur c2, couleur_ind c, double f
 
 
 
-void Schtroumpf::mutate()
+void Schtroumpf::mutate(Schtroumpf s)
 {
     double x = rand()/RAND_MAX;
     if (x<Parameters::mutationRate_schtroumpf){
+        //choix du chromosome qui mute
         int min_borne = 1;
-        int max_borne = 4;
+        int max_borne = 2;
+        int num_chrom = rand()%(max_borne-min_borne+1)+1;
+        //choix de la mutation, si 2,4 = R , 1=b , 3=v
+        min_borne = 1;
+        max_borne = 4;
         int x = rand()%(max_borne-min_borne+1)+1;
+        gene_couleur new_g;
         if (x%2==0){
-
+            new_g = R;
         }
+        else if (x==3){
+            new_g= v;
+        }
+        else {
+            new_g = b;
+        }
+        //on modifie le gène
+        if (num_chrom==1){
+            s.setChrom1(new_g);
+        }
+        else{
+            s.setChrom2(new_g);
+        }
+        //et du coup, la couleur et le fitness
+        couleur_ind c = couleur_individual(s.chrom1, s.chrom2);
+        s.setCouleur(c);
+        double f = def_fitness_schtroumpf(c);
+        s.setFitness(f);
     }
 }
 
