@@ -4,6 +4,7 @@
 
 
 
+
 gene_couleur Schtroumpf::getChrom1() const
 {
     return chrom1;

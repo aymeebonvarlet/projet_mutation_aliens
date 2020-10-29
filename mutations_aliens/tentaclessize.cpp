@@ -1,6 +1,8 @@
 #include "tentaclessize.h"
 #include <QTextStream>
 #include "parameters.h"
+#include <QDebug>
+
 double Tentaclessize::getFitness() const
 {
     return fitness;

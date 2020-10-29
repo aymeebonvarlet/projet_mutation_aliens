@@ -2,6 +2,7 @@
 #include "parameters.h"
 #include <QTextStream>
 #include "alien.h"
+#include <QDebug>
 
 
 
@@ -80,13 +81,18 @@ void Evolutionnary_process::init()
     Schtroumpf *s7 = new Schtroumpf(b,b,Bleu,20);
     Tentaclessize *t7 = new Tentaclessize(40,5);
     l_Alien.append(new Alien(s7,t7));
+    Evolutionnary_process evo;
+    qDebug()<<evo.toString();
 
     //on évalue les fitness de chaque nouvel individu
     for (int i = 0 ; i<7 ; i++){
-        double a = Alien::def_fitness_global(l_Alien[i]);
-        l_Alien[i]->setFitness(a);
+        qDebug()<<"coucou";
+        double b = Alien::def_fitness_global(l_Alien[i]);
+        qDebug()<<"coucou2";
+        l_Alien[i]->setFitness(b);
     }
 
+    qDebug()<<"on a bien créer nos individus";
 }
 
 QString Evolutionnary_process::toString()

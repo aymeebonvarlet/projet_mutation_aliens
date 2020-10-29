@@ -2,7 +2,7 @@
 #include "schtroumpf.h"
 #include <time.h>
 #include <QTextStream>
-
+#include <QDebug>
 
 void Alien::setFitness(double value)
 {
@@ -101,8 +101,11 @@ Schtroumpf* Alien::new_gene_s(Alien *parent1, Alien *parent2)
 double Alien::def_fitness_global(Alien *a)
 {
     double fitness_s = a->getS()->getFitness();
+    qDebug()<<fitness_s;
+    qDebug()<<a->getTs();
     double fitness_t = a->getTs()->getFitness();
     double fitness_global = fitness_s + fitness_t;
+    qDebug()<<"ok";
     return fitness_global;
 }
 

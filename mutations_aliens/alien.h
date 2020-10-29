@@ -4,6 +4,7 @@
 #include <QList>
 #include "schtroumpf.h"
 #include "tentaclessize.h"
+#include <QDebug>
 class Alien
 {
 private:
