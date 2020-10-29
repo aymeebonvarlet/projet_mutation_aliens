@@ -9,8 +9,8 @@ class Schtroumpf
 private:
     gene_couleur chrom1;
     gene_couleur chrom2;
-    double fitness;
     couleur_ind couleur;
+    double fitness;
 public:
     Schtroumpf();
     Schtroumpf(gene_couleur c1, gene_couleur c2, couleur_ind c, double g);
