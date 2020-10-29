@@ -16,3 +16,8 @@ Evolutionnary_process::Evolutionnary_process()
         Alien
     }
 }
+
+void Evolutionnary_process::run()
+{
+
+}
