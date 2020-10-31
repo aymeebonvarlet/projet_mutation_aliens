@@ -1,8 +1,8 @@
 #include "schtroumpf.h"
 #include "QTextStream"
 #include "parameters.h"
-
-
+#include <QDebug>
+#include "time.h"
 
 
 gene_couleur Schtroumpf::getChrom1() const
@@ -27,7 +27,7 @@ void Schtroumpf::setChrom2(const gene_couleur &value)
 
 double Schtroumpf::getFitness() const
 {
-    return fitness;
+    return fitness_s;
 }
 
 
@@ -36,7 +36,8 @@ QString Schtroumpf::toString()
 {
     QString res;
     QTextStream buf(&res);
-    buf<<"( "<<chrom1<<" , "<<chrom2<<" ) = "<<couleur<<" -> fitness : "<<fitness<<endl;
+    buf<<"( "<<couleur_gene[chrom1]<<" , "<<couleur_gene[chrom2]<<" ) = "<<couleur_txt[couleur]<<" -> fitness : "<<fitness_s<<endl;
+    qDebug()<<res;
     return res;
 }
 
@@ -52,15 +53,12 @@ void Schtroumpf::setCouleur(const couleur_ind &value)
 
 void Schtroumpf::setFitness(double value)
 {
-    fitness = value;
+    fitness_s = value;
 }
 
-Schtroumpf::Schtroumpf()
-{
-    
-}
 
-Schtroumpf::Schtroumpf(gene_couleur c1, gene_couleur c2, couleur_ind c, double g): chrom1(c1), chrom2(c2), couleur(c), fitness(g)
+
+Schtroumpf::Schtroumpf(gene_couleur c1, gene_couleur c2, couleur_ind c, double g): chrom1(c1), chrom2(c2), couleur(c), fitness_s(g)
 {
 
 }
@@ -147,4 +145,31 @@ double Schtroumpf::def_fitness_schtroumpf(couleur_ind c)
         a=20;
     }
     return a;
+}
+
+Schtroumpf::Schtroumpf(Alien *parent1, Alien *parent2)
+{
+    //On récupère le gène parent des parents
+    Schtroumpf *gene_s1=parent1->getS();
+    Schtroumpf *gene_s2=parent2->getS();
+    // on va créer deux variables x et y au hasard afin de selectionner 1 chromosome pour chaque parent
+    int x = rand()%2+1;
+    int y = rand()%2+1;
+    //on créait la nouvelle liste de chromosome de ce nouvelle individu
+    QList<gene_couleur> l_new_alien;
+    //on créait les listes de chromosomes du parent 1 et 2
+    QList<gene_couleur> l_p1;
+    QList<gene_couleur> l_p2;
+    //on injecte maintenant dans les listes l_p1 et l_p2 les valeurs des chromos
+    l_p1<<gene_s1->getChrom1()<<gene_s1->getChrom2();
+    l_p2<<gene_s2->getChrom1()<<gene_s2->getChrom2();
+    //on injecte maintenant dans la nouvelle liste en fonction de x et y
+    l_new_alien<<l_p1[x]<<l_p2[y];
+    //on définit la couleur de l'alien en fonction de ces nouveaux chromos
+    couleur_ind c = Schtroumpf::couleur_individual(l_new_alien[0], l_new_alien[1]);
+    //on définit le fitness en fonction de la couleur
+    double fitness_s= Schtroumpf::def_fitness_schtroumpf(c);
+    //on créait le gène Schtroupf finalisé
+    Schtroumpf *new_s = new Schtroumpf(l_new_alien[0], l_new_alien[1],c,fitness_s);
+    liste_s.append(new_s);
 }

@@ -55,15 +55,17 @@ void Evolutionnary_process::init()
 {
     //Alien 1
     Schtroumpf *s1 = new Schtroumpf(R,R,Rouge,1);
-    Tentaclessize *t1 = new Tentaclessize(40,5);
+    Tentaclessize *t1 = new Tentaclessize(65,5);
     l_Alien.append(new Alien(s1,t1));
+    qDebug()<<s1->getFitness()<<t1->getFitness();
+    qDebug()<<"coucou"<<l_Alien[0]->toString();
     //Alien 2
     Schtroumpf *s2 = new Schtroumpf(R,R,Rouge,1);
-    Tentaclessize *t2 = new Tentaclessize(40,5);
+    Tentaclessize *t2 = new Tentaclessize(41,5);
     l_Alien.append(new Alien(s2,t2));
     //Alien 3
     Schtroumpf *s3 = new Schtroumpf(R,R,Rouge,1);
-    Tentaclessize *t3 = new Tentaclessize(40,5);
+    Tentaclessize *t3 = new Tentaclessize(10,5);
     l_Alien.append(new Alien(s3,t3));
     //Alien 4
     Schtroumpf *s4 = new Schtroumpf(R,R,Rouge,1);
@@ -71,24 +73,22 @@ void Evolutionnary_process::init()
     l_Alien.append(new Alien(s4,t4));
     //Alien 5
     Schtroumpf *s5 = new Schtroumpf(v,v,Vert,5);
-    Tentaclessize *t5 = new Tentaclessize(40,5);
+    Tentaclessize *t5 = new Tentaclessize(15,5);
     l_Alien.append(new Alien(s5,t5));
     //Alien 6
     Schtroumpf *s6 = new Schtroumpf(v,v,Vert,5);
-    Tentaclessize *t6 = new Tentaclessize(40,5);
+    Tentaclessize *t6 = new Tentaclessize(20,5);
     l_Alien.append(new Alien(s6,t6));
     //Alien 7
     Schtroumpf *s7 = new Schtroumpf(b,b,Bleu,20);
-    Tentaclessize *t7 = new Tentaclessize(40,5);
+    Tentaclessize *t7 = new Tentaclessize(45,5);
     l_Alien.append(new Alien(s7,t7));
-    Evolutionnary_process evo;
-    qDebug()<<evo.toString();
 
     //on évalue les fitness de chaque nouvel individu
-    for (int i = 0 ; i<7 ; i++){
-        qDebug()<<"coucou";
+    for (int i = 0 ; i<Parameters::individualsNb ; i++){
+        qDebug()<<"coucou"<<l_Alien[i]->toString();
         double b = Alien::def_fitness_global(l_Alien[i]);
-        qDebug()<<"coucou2";
+        qDebug()<<b;
         l_Alien[i]->setFitness(b);
     }
 
@@ -100,9 +100,11 @@ QString Evolutionnary_process::toString()
  //Retourner la liste de la population
     QString res;
     QTextStream buf(&res);
+    buf<<"[ ";
     for (int all= 0; all < 7 ; all++){
-        buf<<"Alien n°"<<all<<" "<<l_Alien[all]->toString()<<endl;
+        buf<<" Alien "<<all<<" "<<l_Alien[all]->toString()<<" ; ";
     }
+    buf<<" ]"<<endl;
     return res;
 }
 

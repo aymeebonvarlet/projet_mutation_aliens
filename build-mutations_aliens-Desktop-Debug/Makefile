@@ -436,10 +436,14 @@ parameters.o: ../mutations_aliens/parameters.cpp ../mutations_aliens/parameters.
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o parameters.o ../mutations_aliens/parameters.cpp
 
 schtroumpf.o: ../mutations_aliens/schtroumpf.cpp ../mutations_aliens/schtroumpf.h \
+		../mutations_aliens/alien.h \
+		../mutations_aliens/tentaclessize.h \
 		../mutations_aliens/parameters.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o schtroumpf.o ../mutations_aliens/schtroumpf.cpp
 
 tentaclessize.o: ../mutations_aliens/tentaclessize.cpp ../mutations_aliens/tentaclessize.h \
+		../mutations_aliens/alien.h \
+		../mutations_aliens/schtroumpf.h \
 		../mutations_aliens/parameters.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tentaclessize.o ../mutations_aliens/tentaclessize.cpp
 

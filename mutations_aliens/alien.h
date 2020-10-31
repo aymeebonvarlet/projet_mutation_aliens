@@ -12,12 +12,10 @@ private:
     Tentaclessize *ts;
     double fitness=-1;
 public:
-    Alien();
     Alien(Schtroumpf *st, Tentaclessize *t, double f=-1);
-    static Schtroumpf* new_gene_s(Alien *parent1, Alien *parent2);
-    static Tentaclessize* new_gene_t(Alien *parent1, Alien *parent2);
-    static double def_fitness_global(Alien* a);
+    double def_fitness_global(Alien* a);
     QString toString();
+    double evaluate();
     //getter
     Schtroumpf *getS() const;
     double getFitness() const;

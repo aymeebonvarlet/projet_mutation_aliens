@@ -1,22 +1,30 @@
 #ifndef SCHTROUMPF_H
 #define SCHTROUMPF_H
 #include <QString>
+#include "alien.h"
 
 enum gene_couleur {R, v ,b };
+static QString couleur_gene[3]={
+    "R","v","b"
+};
 enum couleur_ind{Rouge, Jaune, Bleu, Vert};
+static QString couleur_txt[4]={
+    "Rouge","Jaune","Bleu","Vert"
+};
 class Schtroumpf
 {
 private:
     gene_couleur chrom1;
     gene_couleur chrom2;
     couleur_ind couleur;
-    double fitness;
+    double fitness_s;
 public:
-    Schtroumpf();
+    QList<Schtroumpf*> liste_s;
     Schtroumpf(gene_couleur c1, gene_couleur c2, couleur_ind c, double g);
-    static void mutate(Schtroumpf s);
-    static couleur_ind couleur_individual(gene_couleur c1, gene_couleur c2);
-    static double def_fitness_schtroumpf(couleur_ind c);
+    Schtroumpf(Alien *parent1, Alien *parent2);
+    void mutate(Schtroumpf s);
+    couleur_ind couleur_individual(gene_couleur c1, gene_couleur c2);
+    double def_fitness_schtroumpf(couleur_ind c);
     //getter et setter
     gene_couleur getChrom1() const;
     void setChrom1(const gene_couleur &value);
