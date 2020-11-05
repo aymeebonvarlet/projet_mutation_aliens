@@ -36,6 +36,11 @@ void Alien::setFitness(double value)
     fitness = value;
 }
 
+Alien::Alien()
+{
+
+}
+
 Alien::Alien(Gene_Schtroumpf *st, Gene_Tentacles *t, double f) : s(st), ts(t) ,fitness(f)
 {
 
@@ -53,10 +58,6 @@ QString Alien::toString()
     qDebug()<<"ok2";
     return res;
 }
-
-
-
-
 
 
 

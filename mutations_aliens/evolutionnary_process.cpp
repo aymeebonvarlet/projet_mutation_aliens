@@ -58,7 +58,6 @@ void Evolutionnary_process::init()
     Gene_Schtroumpf *s1 = new Gene_Schtroumpf(R,R,Rouge,1);
     Gene_Tentacles *t1 = new Gene_Tentacles(65,5);
     l_Alien.append(new Alien(s1,t1));
-    qDebug()<<s1->getFitness()<<t1->getFitness();
     qDebug()<<"coucou"<<l_Alien[0]->toString();
     //Alien 2
     Gene_Schtroumpf *s2 = new Gene_Schtroumpf(R,R,Rouge,1);

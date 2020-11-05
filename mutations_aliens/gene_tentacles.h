@@ -1,7 +1,6 @@
 #ifndef GENE_TENTACLES_H
 #define GENE_TENTACLES_H
 #include <QString>
-#include "alien.h"
 
 class Gene_Tentacles
 {

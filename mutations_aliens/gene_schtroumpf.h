@@ -1,7 +1,6 @@
 #ifndef GENE_SCHTROUMPF_H
 #define GENE_SCHTROUMPF_H
 #include <QString>
-#include "alien.h"
 
 enum gene_couleur {R, v ,b };
 static QString couleur_gene[3]={
