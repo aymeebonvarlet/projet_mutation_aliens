@@ -1,17 +1,42 @@
 #include "alien.h"
-#include "schtroumpf.h"
+#include "gene_schtroumpf.h"
 #include <time.h>
 #include <QTextStream>
 #include <QDebug>
+
+
+
+Gene_Schtroumpf *Alien::getS() const
+{
+    return s;
+}
+
+void Alien::setS(Gene_Schtroumpf *value)
+{
+    s = value;
+}
+
+Gene_Tentacles *Alien::getTs() const
+{
+    return ts;
+}
+
+void Alien::setTs(Gene_Tentacles *value)
+{
+    ts = value;
+}
+
+double Alien::getFitness() const
+{
+    return fitness;
+}
 
 void Alien::setFitness(double value)
 {
     fitness = value;
 }
 
-
-
-Alien::Alien( Schtroumpf *st, Tentaclessize *t,double f) : s(st), ts(t) ,fitness(f)
+Alien::Alien(Gene_Schtroumpf *st, Gene_Tentacles *t, double f) : s(st), ts(t) ,fitness(f)
 {
 
 }
@@ -34,27 +59,12 @@ QString Alien::toString()
 
 
 
-Schtroumpf *Alien::getS() const
-{
-    return s;
-}
-
-
-
-double Alien::getFitness() const
-{
-    return fitness;
-}
-
 
 
 //fonction permmetant de retourner le gène Schtroumpf du nouvel individu créer à partir de 2 parents
 
 
-Tentaclessize *Alien::getTs() const
-{
-    return ts;
-}
+
 
 
 
@@ -67,10 +77,6 @@ double Alien::def_fitness_global(Alien *a)
     return fitness_global;
 }
 
-double Alien::evaluate()
-{
-
-}
 
 
 

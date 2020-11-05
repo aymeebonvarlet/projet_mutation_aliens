@@ -12,20 +12,20 @@ SOURCES += \
     ../../shared/qstd.cpp \
     alien.cpp \
     evolutionnary_process.cpp \
+    gene_schtroumpf.cpp \
+    gene_tentacles.cpp \
     main.cpp \
     mainwindow.cpp \
-    parameters.cpp \
-    schtroumpf.cpp \
-    tentaclessize.cpp
+    parameters.cpp
 
 HEADERS += \
     ../../shared/qstd.h \
     alien.h \
     evolutionnary_process.h \
+    gene_schtroumpf.h \
+    gene_tentacles.h \
     mainwindow.h \
-    parameters.h \
-    schtroumpf.h \
-    tentaclessize.h
+    parameters.h
 
 FORMS += \
     mainwindow.ui

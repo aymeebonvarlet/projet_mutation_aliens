@@ -55,19 +55,19 @@ OBJECTS_DIR   = ./
 SOURCES       = ../../shared/qstd.cpp \
 		../mutations_aliens/alien.cpp \
 		../mutations_aliens/evolutionnary_process.cpp \
+		../mutations_aliens/gene_schtroumpf.cpp \
+		../mutations_aliens/gene_tentacles.cpp \
 		../mutations_aliens/main.cpp \
 		../mutations_aliens/mainwindow.cpp \
-		../mutations_aliens/parameters.cpp \
-		../mutations_aliens/schtroumpf.cpp \
-		../mutations_aliens/tentaclessize.cpp moc_mainwindow.cpp
+		../mutations_aliens/parameters.cpp moc_mainwindow.cpp
 OBJECTS       = qstd.o \
 		alien.o \
 		evolutionnary_process.o \
+		gene_schtroumpf.o \
+		gene_tentacles.o \
 		main.o \
 		mainwindow.o \
 		parameters.o \
-		schtroumpf.o \
-		tentaclessize.o \
 		moc_mainwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -86,6 +86,9 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_designer.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_designer_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_designercomponents_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_edid_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_egl_support_private.pri \
@@ -97,6 +100,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_glx_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_help.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_help_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_input_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_kms_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri \
@@ -109,13 +114,22 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformcompositor_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_service_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_theme_support_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_uiplugin.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_uitools.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_uitools_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_vulkan_support_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkit.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkitwidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
@@ -148,17 +162,17 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../mutations_aliens/mutations_aliens.pro ../../shared/qstd.h \
 		../mutations_aliens/alien.h \
 		../mutations_aliens/evolutionnary_process.h \
+		../mutations_aliens/gene_schtroumpf.h \
+		../mutations_aliens/gene_tentacles.h \
 		../mutations_aliens/mainwindow.h \
-		../mutations_aliens/parameters.h \
-		../mutations_aliens/schtroumpf.h \
-		../mutations_aliens/tentaclessize.h ../../shared/qstd.cpp \
+		../mutations_aliens/parameters.h ../../shared/qstd.cpp \
 		../mutations_aliens/alien.cpp \
 		../mutations_aliens/evolutionnary_process.cpp \
+		../mutations_aliens/gene_schtroumpf.cpp \
+		../mutations_aliens/gene_tentacles.cpp \
 		../mutations_aliens/main.cpp \
 		../mutations_aliens/mainwindow.cpp \
-		../mutations_aliens/parameters.cpp \
-		../mutations_aliens/schtroumpf.cpp \
-		../mutations_aliens/tentaclessize.cpp
+		../mutations_aliens/parameters.cpp
 QMAKE_TARGET  = mutations_aliens
 DESTDIR       = 
 TARGET        = mutations_aliens
@@ -187,6 +201,9 @@ Makefile: ../mutations_aliens/mutations_aliens.pro /usr/lib/x86_64-linux-gnu/qt5
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_designer.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_designer_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_designercomponents_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_edid_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_egl_support_private.pri \
@@ -198,6 +215,8 @@ Makefile: ../mutations_aliens/mutations_aliens.pro /usr/lib/x86_64-linux-gnu/qt5
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_glx_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_help.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_help_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_input_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_kms_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri \
@@ -210,13 +229,22 @@ Makefile: ../mutations_aliens/mutations_aliens.pro /usr/lib/x86_64-linux-gnu/qt5
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformcompositor_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_service_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_theme_support_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_uiplugin.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_uitools.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_uitools_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_vulkan_support_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkit.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkitwidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
@@ -265,6 +293,9 @@ Makefile: ../mutations_aliens/mutations_aliens.pro /usr/lib/x86_64-linux-gnu/qt5
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_designer.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_designer_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_designercomponents_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_devicediscovery_support_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_edid_support_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_egl_support_private.pri:
@@ -276,6 +307,8 @@ Makefile: ../mutations_aliens/mutations_aliens.pro /usr/lib/x86_64-linux-gnu/qt5
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_glx_support_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_help.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_help_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_input_support_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_kms_support_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri:
@@ -288,13 +321,22 @@ Makefile: ../mutations_aliens/mutations_aliens.pro /usr/lib/x86_64-linux-gnu/qt5
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformcompositor_support_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_service_support_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_theme_support_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_uiplugin.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_uitools.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_uitools_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_vulkan_support_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkit.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkitwidgets.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri:
@@ -340,8 +382,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../shared/qstd.h ../mutations_aliens/alien.h ../mutations_aliens/evolutionnary_process.h ../mutations_aliens/mainwindow.h ../mutations_aliens/parameters.h ../mutations_aliens/schtroumpf.h ../mutations_aliens/tentaclessize.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../shared/qstd.cpp ../mutations_aliens/alien.cpp ../mutations_aliens/evolutionnary_process.cpp ../mutations_aliens/main.cpp ../mutations_aliens/mainwindow.cpp ../mutations_aliens/parameters.cpp ../mutations_aliens/schtroumpf.cpp ../mutations_aliens/tentaclessize.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../shared/qstd.h ../mutations_aliens/alien.h ../mutations_aliens/evolutionnary_process.h ../mutations_aliens/gene_schtroumpf.h ../mutations_aliens/gene_tentacles.h ../mutations_aliens/mainwindow.h ../mutations_aliens/parameters.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../shared/qstd.cpp ../mutations_aliens/alien.cpp ../mutations_aliens/evolutionnary_process.cpp ../mutations_aliens/gene_schtroumpf.cpp ../mutations_aliens/gene_tentacles.cpp ../mutations_aliens/main.cpp ../mutations_aliens/mainwindow.cpp ../mutations_aliens/parameters.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../mutations_aliens/mainwindow.ui $(DISTDIR)/
 	$(COPY_FILE) --parents mutations_aliens_fr_FR.ts $(DISTDIR)/
 
@@ -408,23 +450,35 @@ qstd.o: ../../shared/qstd.cpp ../../shared/qstd.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qstd.o ../../shared/qstd.cpp
 
 alien.o: ../mutations_aliens/alien.cpp ../mutations_aliens/alien.h \
-		../mutations_aliens/schtroumpf.h \
-		../mutations_aliens/tentaclessize.h
+		../mutations_aliens/gene_schtroumpf.h \
+		../mutations_aliens/gene_tentacles.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o alien.o ../mutations_aliens/alien.cpp
 
 evolutionnary_process.o: ../mutations_aliens/evolutionnary_process.cpp ../mutations_aliens/evolutionnary_process.h \
 		../mutations_aliens/alien.h \
-		../mutations_aliens/schtroumpf.h \
-		../mutations_aliens/tentaclessize.h \
+		../mutations_aliens/gene_schtroumpf.h \
+		../mutations_aliens/gene_tentacles.h \
 		../mutations_aliens/parameters.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o evolutionnary_process.o ../mutations_aliens/evolutionnary_process.cpp
+
+gene_schtroumpf.o: ../mutations_aliens/gene_schtroumpf.cpp ../mutations_aliens/gene_schtroumpf.h \
+		../mutations_aliens/alien.h \
+		../mutations_aliens/gene_tentacles.h \
+		../mutations_aliens/parameters.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gene_schtroumpf.o ../mutations_aliens/gene_schtroumpf.cpp
+
+gene_tentacles.o: ../mutations_aliens/gene_tentacles.cpp ../mutations_aliens/gene_tentacles.h \
+		../mutations_aliens/alien.h \
+		../mutations_aliens/gene_schtroumpf.h \
+		../mutations_aliens/parameters.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gene_tentacles.o ../mutations_aliens/gene_tentacles.cpp
 
 main.o: ../mutations_aliens/main.cpp ../mutations_aliens/mainwindow.h \
 		../../shared/qstd.h \
 		../mutations_aliens/evolutionnary_process.h \
 		../mutations_aliens/alien.h \
-		../mutations_aliens/schtroumpf.h \
-		../mutations_aliens/tentaclessize.h
+		../mutations_aliens/gene_schtroumpf.h \
+		../mutations_aliens/gene_tentacles.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../mutations_aliens/main.cpp
 
 mainwindow.o: ../mutations_aliens/mainwindow.cpp ../mutations_aliens/mainwindow.h \
@@ -434,18 +488,6 @@ mainwindow.o: ../mutations_aliens/mainwindow.cpp ../mutations_aliens/mainwindow.
 parameters.o: ../mutations_aliens/parameters.cpp ../mutations_aliens/parameters.h \
 		../../shared/qstd.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o parameters.o ../mutations_aliens/parameters.cpp
-
-schtroumpf.o: ../mutations_aliens/schtroumpf.cpp ../mutations_aliens/schtroumpf.h \
-		../mutations_aliens/alien.h \
-		../mutations_aliens/tentaclessize.h \
-		../mutations_aliens/parameters.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o schtroumpf.o ../mutations_aliens/schtroumpf.cpp
-
-tentaclessize.o: ../mutations_aliens/tentaclessize.cpp ../mutations_aliens/tentaclessize.h \
-		../mutations_aliens/alien.h \
-		../mutations_aliens/schtroumpf.h \
-		../mutations_aliens/parameters.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tentaclessize.o ../mutations_aliens/tentaclessize.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

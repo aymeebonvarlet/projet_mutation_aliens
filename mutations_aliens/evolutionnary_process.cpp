@@ -29,10 +29,11 @@ void Evolutionnary_process::run()
         int min_borne = 0;
         int max_borne = 6;
         int p2 = rand()%(max_borne-min_borne+1)+1;
-        Schtroumpf *new_s = Alien::new_gene_s(l_Alien[p1],l_Alien[p2]);
-        Schtroumpf::mutate(*new_s);
-        Tentaclessize *new_t = Alien::new_gene_t(l_Alien[p1],l_Alien[p2]);
-        Tentaclessize::mutate(*new_t);
+        //gène Schtroumpf
+        Gene_Schtroumpf *new_s = new Gene_Schtroumpf(l_Alien[p1]->getS(),l_Alien[p2]->getS());
+        //gène Tentacules
+        Gene_Tentacles *new_t = new Gene_Tentacles(l_Alien[p1]->getTs(),l_Alien[p2]->getTs());
+        //on les insères
         Alien *new_a = new Alien(new_s,new_t);
         new_a->setFitness(Alien::def_fitness_global(new_a));
         new_aliens.append(new_a);
@@ -54,34 +55,34 @@ void Evolutionnary_process::run()
 void Evolutionnary_process::init()
 {
     //Alien 1
-    Schtroumpf *s1 = new Schtroumpf(R,R,Rouge,1);
-    Tentaclessize *t1 = new Tentaclessize(65,5);
+    Gene_Schtroumpf *s1 = new Gene_Schtroumpf(R,R,Rouge,1);
+    Gene_Tentacles *t1 = new Gene_Tentacles(65,5);
     l_Alien.append(new Alien(s1,t1));
     qDebug()<<s1->getFitness()<<t1->getFitness();
     qDebug()<<"coucou"<<l_Alien[0]->toString();
     //Alien 2
-    Schtroumpf *s2 = new Schtroumpf(R,R,Rouge,1);
-    Tentaclessize *t2 = new Tentaclessize(41,5);
+    Gene_Schtroumpf *s2 = new Gene_Schtroumpf(R,R,Rouge,1);
+    Gene_Tentacles *t2 = new Gene_Tentacles(41,5);
     l_Alien.append(new Alien(s2,t2));
     //Alien 3
-    Schtroumpf *s3 = new Schtroumpf(R,R,Rouge,1);
-    Tentaclessize *t3 = new Tentaclessize(10,5);
+    Gene_Schtroumpf *s3 = new Gene_Schtroumpf(R,R,Rouge,1);
+    Gene_Tentacles *t3 = new Gene_Tentacles(10,5);
     l_Alien.append(new Alien(s3,t3));
     //Alien 4
-    Schtroumpf *s4 = new Schtroumpf(R,R,Rouge,1);
-    Tentaclessize *t4 = new Tentaclessize(40,5);
+    Gene_Schtroumpf *s4 = new Gene_Schtroumpf(R,R,Rouge,1);
+    Gene_Tentacles *t4 = new Gene_Tentacles(40,5);
     l_Alien.append(new Alien(s4,t4));
     //Alien 5
-    Schtroumpf *s5 = new Schtroumpf(v,v,Vert,5);
-    Tentaclessize *t5 = new Tentaclessize(15,5);
+    Gene_Schtroumpf *s5 = new Gene_Schtroumpf(v,v,Vert,5);
+    Gene_Tentacles *t5 = new Gene_Tentacles(15,5);
     l_Alien.append(new Alien(s5,t5));
     //Alien 6
-    Schtroumpf *s6 = new Schtroumpf(v,v,Vert,5);
-    Tentaclessize *t6 = new Tentaclessize(20,5);
+    Gene_Schtroumpf *s6 = new Gene_Schtroumpf(v,v,Vert,5);
+    Gene_Tentacles *t6 = new Gene_Tentacles(20,5);
     l_Alien.append(new Alien(s6,t6));
     //Alien 7
-    Schtroumpf *s7 = new Schtroumpf(b,b,Bleu,20);
-    Tentaclessize *t7 = new Tentaclessize(45,5);
+    Gene_Schtroumpf *s7 = new Gene_Schtroumpf(b,b,Bleu,20);
+    Gene_Tentacles *t7 = new Gene_Tentacles(45,5);
     l_Alien.append(new Alien(s7,t7));
 
     //on évalue les fitness de chaque nouvel individu
