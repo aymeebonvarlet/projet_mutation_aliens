@@ -27,6 +27,10 @@ void Gene_Schtroumpf::setChrom2(const gene_couleur &value)
 
 double Gene_Schtroumpf::getFitness() const
 {
+    if (fitness_s==-1){
+        qDebug()<<"ici le fitness est passé à -1";
+    }
+    qDebug()<<"ds le get"<<fitness_s;
     return fitness_s;
 }
 
@@ -36,7 +40,7 @@ QString Gene_Schtroumpf::toString()
 {
     QString res;
     QTextStream buf(&res);
-    buf<<"( "<<couleur_gene[chrom1]<<" , "<<couleur_gene[chrom2]<<" ) = "<<couleur_txt[couleur]<<" -> fitness : "<<fitness_s<<endl;
+    buf<<"( "<<couleur_gene[chrom1]<<" , "<<couleur_gene[chrom2]<<" ) = "<<couleur_txt[couleur]<<" -> fitness : "<<fitness_s;
     qDebug()<<res;
     return res;
 }
@@ -58,14 +62,10 @@ void Gene_Schtroumpf::setFitness(double value)
 
 
 
-
-
 Gene_Schtroumpf::Gene_Schtroumpf(gene_couleur c1, gene_couleur c2, couleur_ind c, double g): chrom1(c1), chrom2(c2), couleur(c), fitness_s(g)
 {
 
 }
-
-
 
 
 void Gene_Schtroumpf::mutate()
@@ -104,6 +104,7 @@ void Gene_Schtroumpf::mutate()
         fitness_s=f;
     }
 }
+
 
 couleur_ind Gene_Schtroumpf::couleur_individual(gene_couleur c1, gene_couleur c2)
 {

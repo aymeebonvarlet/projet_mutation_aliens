@@ -2,6 +2,7 @@
 #include <QTextStream>
 #include "parameters.h"
 #include <QDebug>
+
 double Gene_Tentacles::getFitness() const
 {
     return fitness_t;
@@ -12,8 +13,8 @@ QString Gene_Tentacles::toString()
 {
     QString res;
     QTextStream buf(&res);
-    qDebug()<<taille;
-    buf<<"taille:" <<taille<<" -> fitness = "<<fitness_t<<endl;
+    qDebug()<<"dans tostring tentacles";
+    buf<<"taille:" <<taille<<" -> fitness = "<<fitness_t;
     return res;
 }
 

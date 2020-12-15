@@ -1,7 +1,6 @@
 #include "evolutionnary_process.h"
 #include "parameters.h"
 #include <QTextStream>
-#include "alien.h"
 #include <QDebug>
 
 
@@ -14,7 +13,7 @@ void Evolutionnary_process::survival(QList<Alien *> &newGeneration)
 
 Evolutionnary_process::Evolutionnary_process()
 {
-    for(int i=0 ; i<Parameters::individualsNb; i++){
+    for(int i=0 ; i<Parameters::individualsNb-1; i++){
         Alien *alien= new Alien();
         l_Alien.append(alien);
     }
@@ -25,17 +24,20 @@ void Evolutionnary_process::run()
     QList<Alien *> new_aliens;
     //on commence par la première génération qui est différente des autres
     //on run que pour la première génération
-    for (int p1 = 0; p1<7 ; p1++){
+    for (int p1 = 0; p1<Parameters::individualsNb-1 ; p1++){
         int min_borne = 0;
         int max_borne = 6;
+        //ajouter que le parent doit être différent du premier
         int p2 = rand()%(max_borne-min_borne+1)+1;
+        while(p1==p2){
+            p2 = rand()%(max_borne-min_borne+1)+1;
+        }
         //gène Schtroumpf
         Gene_Schtroumpf *new_s = new Gene_Schtroumpf(l_Alien[p1]->getS(),l_Alien[p2]->getS());
         //gène Tentacules
         Gene_Tentacles *new_t = new Gene_Tentacles(l_Alien[p1]->getTs(),l_Alien[p2]->getTs());
         //on les insères
         Alien *new_a = new Alien(new_s,new_t);
-        new_a->setFitness(Alien::def_fitness_global(new_a));
         new_aliens.append(new_a);
     }
     //on range les aliens dans la nouvelle liste en fonction de leurs fitness
@@ -58,6 +60,8 @@ void Evolutionnary_process::init()
     Gene_Schtroumpf *s1 = new Gene_Schtroumpf(R,R,Rouge,1);
     Gene_Tentacles *t1 = new Gene_Tentacles(65,5);
     l_Alien.append(new Alien(s1,t1));
+    qDebug()<<"f_s : "<<l_Alien[0]->getS()->getFitness();
+    qDebug()<<l_Alien[0]->getS()->getFitness();
     qDebug()<<"coucou"<<l_Alien[0]->toString();
     //Alien 2
     Gene_Schtroumpf *s2 = new Gene_Schtroumpf(R,R,Rouge,1);
@@ -84,13 +88,13 @@ void Evolutionnary_process::init()
     Gene_Tentacles *t7 = new Gene_Tentacles(45,5);
     l_Alien.append(new Alien(s7,t7));
 
-    //on évalue les fitness de chaque nouvel individu
+    /* //on évalue les fitness de chaque nouvel individu
     for (int i = 0 ; i<Parameters::individualsNb ; i++){
         qDebug()<<"coucou"<<l_Alien[i]->toString();
         double b = Alien::def_fitness_global(l_Alien[i]);
         qDebug()<<b;
         l_Alien[i]->setFitness(b);
-    }
+    }*/
 
     qDebug()<<"on a bien créer nos individus";
 }

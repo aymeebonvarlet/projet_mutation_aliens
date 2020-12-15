@@ -43,7 +43,7 @@ Alien::Alien()
 
 Alien::Alien(Gene_Schtroumpf *st, Gene_Tentacles *t, double f) : s(st), ts(t) ,fitness(f)
 {
-
+    def_fitness_global();
 }
 
 
@@ -53,7 +53,7 @@ QString Alien::toString()
     QString res;
     QTextStream buf(&res);
     buf<<"[ "<<s->toString()<<" ; ";
-    qDebug()<<"ok";
+    qDebug()<<"dans to string alien";
     buf<< ts->toString()<<" ]"<<endl;
     qDebug()<<"ok2";
     return res;
@@ -62,20 +62,12 @@ QString Alien::toString()
 
 
 
-//fonction permmetant de retourner le gène Schtroumpf du nouvel individu créer à partir de 2 parents
-
-
-
-
-
-
-double Alien::def_fitness_global(Alien *a)
+void Alien::def_fitness_global()
 {
-
-    double fitness_s = a->getS()->getFitness();
-    double fitness_t = a->getTs()->getFitness();
-    double fitness_global = fitness_s + fitness_t;
-    return fitness_global;
+    double fitness_st = s->getFitness();
+    qDebug()<<s->getFitness();
+    double fitness_te = ts->getFitness();
+    fitness = fitness_st + fitness_te;
 }
 
 

@@ -15,7 +15,7 @@ private:
 public:
     Alien();
     Alien(Gene_Schtroumpf *st, Gene_Tentacles *t, double f=-1);
-    static double def_fitness_global(Alien* a);
+    void def_fitness_global();
     QString toString();
     double evaluate();
     //getter
