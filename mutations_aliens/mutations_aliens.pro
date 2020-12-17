@@ -9,7 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    ../../shared/qstd.cpp \
+    qstd.cpp \
     alien.cpp \
     evolutionnary_process.cpp \
     gene_schtroumpf.cpp \
@@ -19,7 +19,7 @@ SOURCES += \
     parameters.cpp
 
 HEADERS += \
-    ../../shared/qstd.h \
+    qstd.h \
     alien.h \
     evolutionnary_process.h \
     gene_schtroumpf.h \

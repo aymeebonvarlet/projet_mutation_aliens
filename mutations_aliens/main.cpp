@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include "../../shared/qstd.h"
+#include "qstd.h"
 using namespace qstd;
 #include <QApplication>
 #include "evolutionnary_process.h"

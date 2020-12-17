@@ -52,7 +52,7 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../../shared/qstd.cpp \
+SOURCES       = ../mutations_aliens/qstd.cpp \
 		../mutations_aliens/alien.cpp \
 		../mutations_aliens/evolutionnary_process.cpp \
 		../mutations_aliens/gene_schtroumpf.cpp \
@@ -159,13 +159,13 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../mutations_aliens/mutations_aliens.pro ../../shared/qstd.h \
+		../mutations_aliens/mutations_aliens.pro ../mutations_aliens/qstd.h \
 		../mutations_aliens/alien.h \
 		../mutations_aliens/evolutionnary_process.h \
 		../mutations_aliens/gene_schtroumpf.h \
 		../mutations_aliens/gene_tentacles.h \
 		../mutations_aliens/mainwindow.h \
-		../mutations_aliens/parameters.h ../../shared/qstd.cpp \
+		../mutations_aliens/parameters.h ../mutations_aliens/qstd.cpp \
 		../mutations_aliens/alien.cpp \
 		../mutations_aliens/evolutionnary_process.cpp \
 		../mutations_aliens/gene_schtroumpf.cpp \
@@ -382,8 +382,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../shared/qstd.h ../mutations_aliens/alien.h ../mutations_aliens/evolutionnary_process.h ../mutations_aliens/gene_schtroumpf.h ../mutations_aliens/gene_tentacles.h ../mutations_aliens/mainwindow.h ../mutations_aliens/parameters.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../shared/qstd.cpp ../mutations_aliens/alien.cpp ../mutations_aliens/evolutionnary_process.cpp ../mutations_aliens/gene_schtroumpf.cpp ../mutations_aliens/gene_tentacles.cpp ../mutations_aliens/main.cpp ../mutations_aliens/mainwindow.cpp ../mutations_aliens/parameters.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../mutations_aliens/qstd.h ../mutations_aliens/alien.h ../mutations_aliens/evolutionnary_process.h ../mutations_aliens/gene_schtroumpf.h ../mutations_aliens/gene_tentacles.h ../mutations_aliens/mainwindow.h ../mutations_aliens/parameters.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../mutations_aliens/qstd.cpp ../mutations_aliens/alien.cpp ../mutations_aliens/evolutionnary_process.cpp ../mutations_aliens/gene_schtroumpf.cpp ../mutations_aliens/gene_tentacles.cpp ../mutations_aliens/main.cpp ../mutations_aliens/mainwindow.cpp ../mutations_aliens/parameters.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../mutations_aliens/mainwindow.ui $(DISTDIR)/
 	$(COPY_FILE) --parents mutations_aliens_fr_FR.ts $(DISTDIR)/
 
@@ -446,8 +446,8 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
-qstd.o: ../../shared/qstd.cpp ../../shared/qstd.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qstd.o ../../shared/qstd.cpp
+qstd.o: ../mutations_aliens/qstd.cpp ../mutations_aliens/qstd.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qstd.o ../mutations_aliens/qstd.cpp
 
 alien.o: ../mutations_aliens/alien.cpp ../mutations_aliens/alien.h \
 		../mutations_aliens/gene_schtroumpf.h \
@@ -462,19 +462,15 @@ evolutionnary_process.o: ../mutations_aliens/evolutionnary_process.cpp ../mutati
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o evolutionnary_process.o ../mutations_aliens/evolutionnary_process.cpp
 
 gene_schtroumpf.o: ../mutations_aliens/gene_schtroumpf.cpp ../mutations_aliens/gene_schtroumpf.h \
-		../mutations_aliens/alien.h \
-		../mutations_aliens/gene_tentacles.h \
 		../mutations_aliens/parameters.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gene_schtroumpf.o ../mutations_aliens/gene_schtroumpf.cpp
 
 gene_tentacles.o: ../mutations_aliens/gene_tentacles.cpp ../mutations_aliens/gene_tentacles.h \
-		../mutations_aliens/alien.h \
-		../mutations_aliens/gene_schtroumpf.h \
 		../mutations_aliens/parameters.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gene_tentacles.o ../mutations_aliens/gene_tentacles.cpp
 
 main.o: ../mutations_aliens/main.cpp ../mutations_aliens/mainwindow.h \
-		../../shared/qstd.h \
+		../mutations_aliens/qstd.h \
 		../mutations_aliens/evolutionnary_process.h \
 		../mutations_aliens/alien.h \
 		../mutations_aliens/gene_schtroumpf.h \

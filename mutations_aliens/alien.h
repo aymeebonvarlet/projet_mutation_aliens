@@ -2,16 +2,16 @@
 #define ALIEN_H
 #include <QString>
 #include <QList>
+#include <QDebug>
 #include "gene_schtroumpf.h"
 #include "gene_tentacles.h"
-#include <QDebug>
 
 class Alien
 {
 private:
     Gene_Schtroumpf *s;
     Gene_Tentacles *ts;
-    double fitness=-1;
+    double fitness;
 public:
     Alien();
     Alien(Gene_Schtroumpf *st, Gene_Tentacles *t, double f=-1);

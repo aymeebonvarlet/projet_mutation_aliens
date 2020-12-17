@@ -1,5 +1,4 @@
 #include "alien.h"
-#include "gene_schtroumpf.h"
 #include <time.h>
 #include <QTextStream>
 #include <QDebug>
